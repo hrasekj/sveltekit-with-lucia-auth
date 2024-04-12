@@ -1,38 +1,66 @@
-# create-svelte
+# SvelteKit Auth Example with Lucia and Drizzle
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is an example project showcasing authentication processes using Lucia for state management and Drizzle for ORM (Object-Relational Mapping) in a SvelteKit application.
 
-## Creating a project
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project demonstrates how to implement authentication features such as user signup, login, logout, and protected routes using Lucia for state management and Drizzle for ORM.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- User signup: Allow users to create a new account.
+- User login: Allow existing users to authenticate themselves.
+- User logout: Allow authenticated users to log out of their accounts.
+- Protected routes: Restrict access to certain routes to authenticated users only.
 
-## Developing
+## Installation
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone the repository:
 
-```bash
-npm run dev
+   ```bash
+   git clone https://github.com/hrasekj/sveltekit-auth-example.git
+   ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+2. Navigate into the project directory:
 
-## Building
+   ```bash
+   cd sveltekit-auth-example
+   ```
 
-To create a production version of your app:
+3. Install dependencies:
 
-```bash
-npm run build
-```
+   ```bash
+   pnpm install
+   ```
 
-You can preview the production build with `npm run preview`.
+## Usage
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Start the development server:
+
+   ```bash
+   pnpm dev
+
+   # or start the server and open the app in a new browser tab
+   pnpm dev --open
+   ```
+
+2. Open your browser and navigate to [http://localhost:5173](http://localhost:5173).
+
+3. Explore the authentication features implemented in the application.
+
+## Configuration
+
+1. Authentication settings such as API endpoints and token expiration can be configured in the `.env` file.
+
+## Dependencies
+
+- [Lucia](https://github.com/aidenybai/lucia): A tiny state management library for reactive web applications.
+- [Drizzle](https://github.com/your-username/drizzle): An ORM (Object-Relational Mapping) library for SvelteKit applications.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
