@@ -33,6 +33,24 @@ This project demonstrates how to implement authentication features such as user 
    pnpm install
    ```
 
+4. Use .env.example to create a new .env file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Initialize database:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+6. Push migrations to the database:
+
+   ```bash
+   npx drizzle-kit push:mysql
+   ```
+
 ## Usage
 
 1. Start the development server:
@@ -48,18 +66,11 @@ This project demonstrates how to implement authentication features such as user 
 
 3. Explore the authentication features implemented in the application.
 
-## Configuration
-
-1. Authentication settings such as API endpoints and token expiration can be configured in the `.env` file.
-
 ## Dependencies
 
-- [Lucia](https://github.com/aidenybai/lucia): A tiny state management library for reactive web applications.
-- [Drizzle](https://github.com/your-username/drizzle): An ORM (Object-Relational Mapping) library for SvelteKit applications.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+- [SvelteKit](https://github.com/sveltejs/kit): A framework for building web applications.
+- [Lucia](https://github.com/lucia-auth/lucia): Authentication library.
+- [Drizzle ORM](https://github.com/drizzle-team/drizzle-orm): An ORM (Object-Relational Mapping) library.
 
 ## License
 
