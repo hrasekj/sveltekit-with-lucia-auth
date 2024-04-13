@@ -23,6 +23,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.37.0",
     "globals": "^15.0.0",
+    "lucia": "^3.1.1",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.3",
     "svelte": "^4.2.14",
@@ -34,7 +35,9 @@
   },
   "type": "module",
   "dependencies": {
+    "@lucia-auth/adapter-drizzle": "^1.0.7",
     "drizzle-orm": "^0.30.8",
-    "mysql2": "^3.9.4"
+    "mysql2": "^3.9.4",
+    "oslo": "^1.2.0"
   }
 }
