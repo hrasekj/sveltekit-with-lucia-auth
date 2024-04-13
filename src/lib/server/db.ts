@@ -10,7 +10,7 @@ const connection = await mysql.createConnection({
   password: env.DB_PASSWORD
 });
 
-const db = drizzle(connection);
+export const db = drizzle(connection);
 
 export const userRepository = userRepositoryFactory(db);
 export type UserRepository = ReturnType<typeof userRepositoryFactory>;
