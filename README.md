@@ -62,9 +62,19 @@ This project demonstrates how to implement authentication features such as user 
    pnpm dev --open
    ```
 
-2. Open your browser and navigate to [http://localhost:5173](http://localhost:5173).
+2. In browser navigate to [http://localhost:5173](http://localhost:5173).
 
 3. Explore the authentication features implemented in the application.
+
+## Development
+
+To create new migration files, run:
+
+```bash
+npx drizzle-kit generate:mysql
+```
+
+Then push the new migration to the database.
 
 ## Dependencies
 
