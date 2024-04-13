@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: foobared
+      MYSQL_DATABASE: my_database
+    ports:
+      - 127.0.0.1:3306:3306
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./.docker/db:/var/lib/mysql
+
+  adminer:
+    image: adminer:4.8.0
+    ports:
+      - 127.0.0.1:8080:8080
