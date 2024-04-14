@@ -1,4 +1,4 @@
-import { createSessionCookie, lucia } from '$lib/server/auth';
+import { createSession, createSessionCookie } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
 import { generateRandomId, hashPassword } from '$lib/server/password';
 import { fail, redirect } from '@sveltejs/kit';
@@ -32,7 +32,7 @@ export const actions: Actions = {
         password: hashedPassword
       });
 
-      const session = await lucia.createSession(user.id, user);
+      const session = await createSession(user.id);
       createSessionCookie(event, session);
     } catch (err: any) {
       if (err.code === 'ER_DUP_ENTRY') {

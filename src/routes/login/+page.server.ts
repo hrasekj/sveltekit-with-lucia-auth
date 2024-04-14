@@ -1,6 +1,7 @@
 import {
   UnauthorizedError,
   createBlankSessionCookie,
+  createSession,
   createSessionCookie,
   lucia
 } from '$lib/server/auth';
@@ -40,7 +41,7 @@ export const actions = {
         throw new UnauthorizedError();
       }
 
-      const session = await lucia.createSession(existingUser.id, existingUser);
+      const session = await createSession(existingUser.id);
       createSessionCookie(event, session);
 
       redirect(302, '/');

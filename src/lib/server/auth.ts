@@ -5,6 +5,7 @@ import type { Session } from 'lucia';
 import { Lucia, TimeSpan } from 'lucia';
 import { sessionTable, userTable } from './database/schema';
 import { db } from './db';
+import { generateRandomId } from './password';
 
 const adapter = new DrizzleMySQLAdapter(db, sessionTable, userTable);
 
@@ -19,6 +20,10 @@ export const lucia = new Lucia(adapter, {
     return { email };
   }
 });
+
+export const createSession = async (userId: string) => {
+  return lucia.createSession(userId, {}, { sessionId: generateRandomId(32) });
+};
 
 export const createSessionCookie = (event: RequestEvent, session: Session) => {
   const sessionCookie = lucia.createSessionCookie(session.id);

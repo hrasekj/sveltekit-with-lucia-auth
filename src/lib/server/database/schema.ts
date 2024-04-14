@@ -16,7 +16,7 @@ export const userTable = mysqlTable('user', {
 });
 
 export const sessionTable = mysqlTable('session', {
-  id: varchar('id', { length: 255 }).primaryKey(),
+  id: char('id', { length: 32 }).primaryKey(),
   userId: uuidColumn('user_id')
     .notNull()
     .references(() => userTable.id, fkDefaultActions),

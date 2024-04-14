@@ -15,8 +15,8 @@ export const verifyPassword = async (user: UserLike, password: string) => {
   return argon2id.verify(user.password, password);
 };
 
-export const generateRandomId = () => {
-  return generateRandomString(16, alphabet('a-z', 'A-Z', '0-9'));
+export const generateRandomId = (length = 16) => {
+  return generateRandomString(length, alphabet('a-z', 'A-Z', '0-9'));
 };
 
 const getArgon2id = (secret: string) => {
