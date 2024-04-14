@@ -13,7 +13,10 @@ export const userRepositoryFactory = (db: ReturnType<typeof drizzle>) => ({
     });
 
     const result = await db
-      .select({ id: uuid(userTable.id) })
+      .select({
+        id: uuid(userTable.id),
+        email: userTable.email
+      })
       .from(userTable)
       .where(eq(userTable.email, user.email))
       .limit(1);
