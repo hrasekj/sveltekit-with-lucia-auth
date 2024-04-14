@@ -42,3 +42,5 @@ declare module 'lucia' {
     DatabaseUserAttributes: typeof userTable.$inferSelect;
   }
 }
+
+export class UnauthorizedError extends Error {}
