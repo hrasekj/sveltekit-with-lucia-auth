@@ -11,7 +11,7 @@
 <p>{action.message}</p>
 {/if}
 
-<form method="post" action="?/login" use:enhance>
+<form method="post" use:enhance>
   <label>
     Email
     <input type="email" name="email" />

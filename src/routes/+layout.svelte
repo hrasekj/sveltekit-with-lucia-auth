@@ -13,7 +13,9 @@
 
     {#if data.user}
     <a href="/profile">Profile</a>
-    <a href="/logout">Logout</a>
+    <form action="/logout" method="post">
+      <button>Logout</button>
+    </form>
     {:else}
     <a href="/login">Login</a>
     <a href="/signup">Signup</a>

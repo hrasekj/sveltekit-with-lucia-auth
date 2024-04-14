@@ -1,17 +1,11 @@
-import {
-  UnauthorizedError,
-  setBlankSessionCookie,
-  createSession,
-  setSessionCookie,
-  lucia
-} from '$lib/server/auth';
+import { UnauthorizedError, createSession, setSessionCookie } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
 import { verifyPassword } from '$lib/server/password';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 export const actions = {
-  login: async (event) => {
+  default: async (event) => {
     const formData = await event.request.formData();
     const email = formData.get('email');
     const password = formData.get('password');
@@ -54,14 +48,5 @@ export const actions = {
 
       throw err;
     }
-  },
-
-  logout: async (event) => {
-    const sessionId = event.locals.session?.id ?? '';
-    await lucia.invalidateSession(sessionId);
-
-    setBlankSessionCookie(event);
-
-    redirect(302, '/');
   }
 } satisfies Actions;
