@@ -17,6 +17,7 @@
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "@types/eslint": "^8.56.9",
     "@types/node": "^20.12.7",
+    "@types/uuid": "^9.0.8",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.20.14",
     "eslint": "^9.0.0",
@@ -38,6 +39,7 @@
     "@lucia-auth/adapter-drizzle": "^1.0.7",
     "drizzle-orm": "^0.30.8",
     "mysql2": "^3.9.4",
-    "oslo": "^1.2.0"
+    "oslo": "^1.2.0",
+    "uuid": "^9.0.1"
   }
 }
