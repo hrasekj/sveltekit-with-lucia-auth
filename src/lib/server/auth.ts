@@ -1,7 +1,7 @@
 import { dev } from '$app/environment';
 import { DrizzleMySQLAdapter } from '@lucia-auth/adapter-drizzle';
 import type { RequestEvent } from '@sveltejs/kit';
-import type { Session } from 'lucia';
+import type { RegisteredDatabaseSessionAttributes, Session } from 'lucia';
 import { Lucia, TimeSpan } from 'lucia';
 import { sessionTable, userTable } from './database/schema';
 import { db } from './db';
@@ -21,8 +21,11 @@ export const lucia = new Lucia(adapter, {
   }
 });
 
-export const createSession = async (userId: string) => {
-  return lucia.createSession(userId, {}, { sessionId: generateRandomId(32) });
+export const createSession = async (
+  userId: string,
+  sessionAttributes: RegisteredDatabaseSessionAttributes = {}
+) => {
+  return lucia.createSession(userId, sessionAttributes, { sessionId: generateRandomId(32) });
 };
 
 export const setSessionCookie = (event: RequestEvent, session: Session) => {
