@@ -1,8 +1,8 @@
 import {
   UnauthorizedError,
-  createBlankSessionCookie,
+  setBlankSessionCookie,
   createSession,
-  createSessionCookie,
+  setSessionCookie,
   lucia
 } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
@@ -42,7 +42,7 @@ export const actions = {
       }
 
       const session = await createSession(existingUser.id);
-      createSessionCookie(event, session);
+      setSessionCookie(event, session);
 
       redirect(302, '/');
     } catch (err) {
@@ -60,7 +60,7 @@ export const actions = {
     const sessionId = event.locals.session?.id ?? '';
     await lucia.invalidateSession(sessionId);
 
-    createBlankSessionCookie(event);
+    setBlankSessionCookie(event);
 
     redirect(302, '/');
   }

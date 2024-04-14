@@ -1,4 +1,4 @@
-import { createSession, createSessionCookie } from '$lib/server/auth';
+import { createSession, setSessionCookie } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
 import { generateRandomId, hashPassword } from '$lib/server/password';
 import { fail, redirect } from '@sveltejs/kit';
@@ -33,7 +33,7 @@ export const actions: Actions = {
       });
 
       const session = await createSession(user.id);
-      createSessionCookie(event, session);
+      setSessionCookie(event, session);
     } catch (err: any) {
       if (err.code === 'ER_DUP_ENTRY') {
         return fail(409, {

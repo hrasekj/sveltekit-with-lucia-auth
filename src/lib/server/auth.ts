@@ -25,7 +25,7 @@ export const createSession = async (userId: string) => {
   return lucia.createSession(userId, {}, { sessionId: generateRandomId(32) });
 };
 
-export const createSessionCookie = (event: RequestEvent, session: Session) => {
+export const setSessionCookie = (event: RequestEvent, session: Session) => {
   const sessionCookie = lucia.createSessionCookie(session.id);
   event.cookies.set(sessionCookie.name, sessionCookie.value, {
     path: '.',
@@ -33,7 +33,7 @@ export const createSessionCookie = (event: RequestEvent, session: Session) => {
   });
 };
 
-export const createBlankSessionCookie = (event: RequestEvent) => {
+export const setBlankSessionCookie = (event: RequestEvent) => {
   const sessionCookie = lucia.createBlankSessionCookie();
   event.cookies.set(sessionCookie.name, sessionCookie.value, {
     path: '.',
