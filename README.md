@@ -82,6 +82,13 @@ Then push the new migration to the database.
 - [Lucia](https://github.com/lucia-auth/lucia): Authentication library.
 - [Drizzle ORM](https://github.com/drizzle-team/drizzle-orm): An ORM (Object-Relational Mapping) library.
 
+## Sources
+
+Here are some resources that helped me create this project:
+
+- https://blog.robino.dev/posts/svelte-zod-error
+- https://dev.to/thiteago/protecting-sveltekit-routes-from-unauthenticated-users-nb9
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
