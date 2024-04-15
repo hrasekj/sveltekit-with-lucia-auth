@@ -1,3 +1,4 @@
+import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import { drizzle } from 'drizzle-orm/mysql2';
 import mysql from 'mysql2/promise';
@@ -10,7 +11,7 @@ const connection = await mysql.createConnection({
   password: env.DB_PASSWORD
 });
 
-export const db = drizzle(connection);
+export const db = drizzle(connection, { logger: dev });
 
 export const userRepository = userRepositoryFactory(db);
 export type UserRepository = ReturnType<typeof userRepositoryFactory>;
