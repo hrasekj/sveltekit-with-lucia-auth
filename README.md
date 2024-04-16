@@ -18,7 +18,7 @@ This project demonstrates how to implement authentication features such as user 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/hrasekj/sveltekit-auth-example.git
+   git clone https://github.com/hrasekj/sveltekit-with-lucia-auth.git
    ```
 
 2. Navigate into the project directory:
