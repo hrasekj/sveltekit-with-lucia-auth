@@ -1,15 +1,14 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import ValidationErrors from '$lib/components/ValidationErrors.svelte';
   import type { ActionData } from './$types';
 
-  export let action: ActionData;
+  export let form: ActionData;
 </script>
 
 <h1>Sign in</h1>
 
-{#if action?.message}
-<p>{action.message}</p>
-{/if}
+<ValidationErrors issues="{form?.errors}" />
 
 <form method="post" use:enhance>
   <label>
