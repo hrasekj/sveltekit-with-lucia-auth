@@ -1,3 +1,4 @@
+import { createIssue } from '$lib/createIssue';
 import { parseFormData } from '$lib/parseFormData';
 import { createSession, setSessionCookie } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
@@ -34,7 +35,7 @@ export const actions = {
     } catch (err: any) {
       if (err.code === 'ER_DUP_ENTRY') {
         return fail(409, {
-          message: 'Email already in use'
+          errors: [createIssue('Email already in use')]
         });
       }
 

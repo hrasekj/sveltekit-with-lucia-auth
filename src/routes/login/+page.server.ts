@@ -1,3 +1,4 @@
+import { createIssue } from '$lib/createIssue';
 import { parseFormData } from '$lib/parseFormData';
 import { UnauthorizedError, createSession, setSessionCookie } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
@@ -39,7 +40,7 @@ export const actions = {
     } catch (err) {
       if (err instanceof UnauthorizedError) {
         return fail(401, {
-          message: 'Invalid email or password'
+          errors: [createIssue('Invalid email or password')]
         });
       }
 
