@@ -1,26 +1,23 @@
+import { parseFormData } from '$lib/parseFormData';
 import { UnauthorizedError, createSession, setSessionCookie } from '$lib/server/auth';
 import { userRepository } from '$lib/server/db';
 import { verifyPassword } from '$lib/server/password';
+import { LoginSchema } from '$lib/validations/LoginSchema';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 export const actions = {
   default: async (event) => {
     const formData = await event.request.formData();
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const model = parseFormData(LoginSchema, formData);
 
-    if (typeof email !== 'string') {
+    if (!model.success) {
       return fail(400, {
-        message: 'Invalid email'
+        errors: model.errors
       });
     }
 
-    if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-      return fail(400, {
-        message: 'Invalid password'
-      });
-    }
+    const { email, password } = model.data;
 
     try {
       const existingUser = await userRepository.findUserByEmail(email);
