@@ -42,5 +42,6 @@
     "mysql2": "^3.9.6",
     "oslo": "^1.2.0",
     "uuid": "^9.0.1"
-  }
+  },
+  "packageManager": "pnpm@9.4.0"
 }
